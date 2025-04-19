@@ -1,5 +1,7 @@
 package bo;
 
+import java.util.Vector;
+
 /**
  * Class representing the Customer relation in the database
  *
@@ -8,10 +10,10 @@ public class Customer {
     
     private int id;
     private String name;
-    private String phone;
+    private int phone;
     private String email;
 
-    public Customer(int id, String name, String phone, String email) {
+    public Customer(int id, String name, int phone, String email) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -34,11 +36,11 @@ public class Customer {
         this.name = name;
     }
 
-    public String getPhone() {
+    public int getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(int phone) {
         this.phone = phone;
     }
 
@@ -57,6 +59,16 @@ public class Customer {
      */
     @Override
     public String toString() {
-        return String.format(" %d, %s, %s, %s", id, name, phone, email);
+        return String.format(" %d, %s, %d, %s", id, name, phone, email);
+    }
+
+    public Vector getRow() {
+        Vector vec = new Vector();
+        vec.add(this.id);
+        vec.add(this.name);
+        vec.add(this.phone);
+        vec.add(this.email);
+        return vec;
+    
     }
 }
